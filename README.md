@@ -64,56 +64,57 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 
 <div style="display: flex; justify-content: space-around; gap: 20px;">
   
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1;">
     
-### **Empresa**
+**Empresa**
 
-| Atributo/Operação | Detalhes |
-| :--- | :--- |
-| $\square$ **id**: int | Identificador único. |
-| $\square$ **nome**: String | Nome da empresa. |
-| $\square$ **cnpj**: String | CNPJ. |
-| $\square$ **email**: String | E-mail. |
-| $\square$ **senha**: String | Senha. |
-| $\bullet$ **cadastrarVaga()** | Registrar vaga. |
-| $\bullet$ **editarPerfil()** | Atualizar dados. |
+| Tipo | Atributo/Operação |
+| :---: | :--- |
+| $\square$ **int** | id |
+| $\square$ **String** | nome |
+| $\square$ **String** | cnpj |
+| $\square$ **String** | email |
+| $\square$ **String** | senha |
+| <hr style="border: 2px solid black;"> | <hr style="border: 2px solid black;"> |
+| 🟢 | cadastrarVaga() |
+| 🟢 | editarPerfil() |
     
   </div>
 
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1;">
     
-### **Usuário**
+**Usuário**
 
-| Atributo/Operação | Detalhes |
-| :--- | :--- |
-| $\square$ **id**: int | Identificador único. |
-| $\square$ **nome**: String | Nome. |
-| $\square$ **email**: String | E-mail de login. |
-| $\square$ **senha**: String | Senha. |
-| $\bullet$ **cadastrar()** | Registrar usuário. |
-| $\bullet$ **login()** | Autenticação. |
+| Tipo | Atributo/Operação |
+| :---: | :--- |
+| $\square$ **int** | id |
+| $\square$ **String** | nome |
+| $\square$ **String** | email |
+| $\square$ **String** | senha |
+| <hr style="border: 2px solid black;"> | <hr style="border: 2px solid black;"> |
+| 🟢 | cadastrar() |
+| 🟢 | login() |
     
   </div>
 </div>
 
-<div style="text-align: center; margin: 10px 0;">
-  ***
-</div>
+***
 
-## **Vaga**
+## Vaga
 
-| Tipo | Atributo/Operação | Detalhes |
-| :---: | :--- | :--- |
-| **Atributo** | $\square$ **id**: int | Identificador único da vaga. |
-| **Atributo** | $\square$ **titulo**: String | Título ou nome da vaga. |
-| **Atributo** | $\square$ **descricao**: String | Descrição detalhada da vaga. |
-| **Atributo** | $\square$ **requisitos**: String | Lista de requisitos. |
-| **Atributo** | $\square$ **localizacao**: String | Local de trabalho. |
-| **Atributo** | $\square$ **tipoContrato**: String | Tipo de contrato. |
-| **Atributo** | $\square$ **emailContato**: String | E-mail de contato. |
-| **Operação** | $\bullet$ **publicar()** | Tornar vaga visível. |
-| **Operação** | $\bullet$ **editar()** | Atualizar dados da vaga. |
-| **Operação** | $\bullet$ **remover()** | Retirar vaga do sistema. |
+| Tipo | Atributo/Operação |
+| :---: | :--- |
+| $\square$ **int** | id |
+| $\square$ **String** | titulo |
+| $\square$ **String** | descricao |
+| $\square$ **String** | requisitos |
+| $\square$ **String** | localizacao |
+| $\square$ **String** | tipoContrato |
+| $\square$ **String** | emailContato |
+| <hr style="border: 2px solid black;"> | <hr style="border: 2px solid black;"> |
+| 🟢 | publicar() |
+| 🟢 | editar() |
+| 🟢 | remover() |
 
 ## 🚀 Como Executar o Projeto (quando estiver pronto)
 ```bash

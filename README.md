@@ -62,6 +62,45 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 
 ---
 
+## 📊 Diagrama de Classes (Mermaid)
+
+```mermaid
+classDiagram
+    class Empresa {
+        +int id
+        +String nome
+        +String cnpj
+        +String email
+        +String senha
+        +cadastrarVaga()
+        +editarPerfil()
+    }
+
+    class Usuario {
+        +int id
+        +String nome
+        +String email
+        +String senha
+        +cadastrar()
+        +login()
+    }
+
+    class Vaga {
+        +int id
+        +String titulo
+        +String descricao
+        +String requisitos
+        +String localizacao
+        +String tipoContrato
+        +String emailContato
+        +publicar()
+        +editar()
+        +remover()
+    }
+
+    Empresa "1" --> "*" Vaga
+
+
 ## 🚀 Como Executar o Projeto (quando estiver pronto)
 ```bash
 # Clonar o repositório

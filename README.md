@@ -62,44 +62,58 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 
 ---
 
-## 📊 Diagrama de Classes (Mermaid)
+<div style="display: flex; justify-content: space-around; gap: 20px;">
+  
+  <div style="flex: 1; text-align: center;">
+    
+### **Empresa**
 
-```mermaid
-classDiagram
-    class Empresa {
-        +int id
-        +String nome
-        +String cnpj
-        +String email
-        +String senha
-        +cadastrarVaga()
-        +editarPerfil()
-    }
+| Atributo/Operação | Detalhes |
+| :--- | :--- |
+| $\square$ **id**: int | Identificador único. |
+| $\square$ **nome**: String | Nome da empresa. |
+| $\square$ **cnpj**: String | CNPJ. |
+| $\square$ **email**: String | E-mail. |
+| $\square$ **senha**: String | Senha. |
+| $\bullet$ **cadastrarVaga()** | Registrar vaga. |
+| $\bullet$ **editarPerfil()** | Atualizar dados. |
+    
+  </div>
 
-    class Usuario {
-        +int id
-        +String nome
-        +String email
-        +String senha
-        +cadastrar()
-        +login()
-    }
+  <div style="flex: 1; text-align: center;">
+    
+### **Usuário**
 
-    class Vaga {
-        +int id
-        +String titulo
-        +String descricao
-        +String requisitos
-        +String localizacao
-        +String tipoContrato
-        +String emailContato
-        +publicar()
-        +editar()
-        +remover()
-    }
+| Atributo/Operação | Detalhes |
+| :--- | :--- |
+| $\square$ **id**: int | Identificador único. |
+| $\square$ **nome**: String | Nome. |
+| $\square$ **email**: String | E-mail de login. |
+| $\square$ **senha**: String | Senha. |
+| $\bullet$ **cadastrar()** | Registrar usuário. |
+| $\bullet$ **login()** | Autenticação. |
+    
+  </div>
+</div>
 
-    Empresa "1" --> "*" Vaga
+<div style="text-align: center; margin: 10px 0;">
+  ***
+</div>
 
+## **Vaga**
+
+| Tipo | Atributo/Operação | Detalhes |
+| :---: | :--- | :--- |
+| **Atributo** | $\square$ **id**: int | Identificador único da vaga. |
+| **Atributo** | $\square$ **titulo**: String | Título ou nome da vaga. |
+| **Atributo** | $\square$ **descricao**: String | Descrição detalhada da vaga. |
+| **Atributo** | $\square$ **requisitos**: String | Lista de requisitos. |
+| **Atributo** | $\square$ **localizacao**: String | Local de trabalho. |
+| **Atributo** | $\square$ **tipoContrato**: String | Tipo de contrato. |
+| **Atributo** | $\square$ **emailContato**: String | E-mail de contato. |
+| **Operação** | $\bullet$ **publicar()** | Tornar vaga visível. |
+| **Operação** | $\bullet$ **editar()** | Atualizar dados da vaga. |
+| **Operação** | $\bullet$ **remover()** | Retirar vaga do sistema. |
 
 ## 🚀 Como Executar o Projeto (quando estiver pronto)
 ```bash

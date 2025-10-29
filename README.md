@@ -61,7 +61,6 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 | 6 | 25/11 a 01/12 | Testes finais, documentação e apresentação do projeto. |
 
 ---
-![Diagrama de classes](diagramas/diagrama-de-classes.png)
 
 ## 🚀 Como Executar o Projeto (quando estiver pronto)
 ```bash

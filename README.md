@@ -65,6 +65,8 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 <div style="display: flex; justify-content: space-around; gap: 20px;">
   
   <div style="flex: 1;">
+
+  ## Diagrama de classes
     
 **Empresa**
 
@@ -98,7 +100,6 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
   </div>
 </div>
 
-***
 
 ## Vaga
 

@@ -119,16 +119,37 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 | 🟢 | editar() |
 | 🟢 | remover() |
 
-## 🚀 Como Executar o Projeto (quando estiver pronto)
-```bash
-# Clonar o repositório
+# 1️⃣ Clonar o repositório
 git clone https://github.com/usuario/Oportunize.git
 
-# Acessar o diretório do projeto
-cd Oportunize
+# 2️⃣ Acessar o diretório do projeto
+cd Oportunize/backend
 
-# Subir os containers
+# 3️⃣ Instalar as dependências
+yarn install
+# ou
+npm install
+
+# 4️⃣ Configurar o arquivo .env
+# Exemplo:
+# DB_HOST=localhost
+# DB_USER=postgres
+# DB_PASS=senha
+# DB_NAME=oportunize_db
+# DB_PORT=5432
+# JWT_SECRET=seusegredoaqui
+
+# 5️⃣ Rodar as migrations
+npx sequelize db:migrate
+
+# 6️⃣ Iniciar o servidor
+yarn dev
+# ou
+npm run dev
+
+# 7️⃣ (Opcional) Executar via Docker
 docker-compose up
+
 
 
 

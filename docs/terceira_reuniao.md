@@ -1,24 +1,25 @@
 # Reunião de Desenvolvimento - Projeto Oportunize
 
-**Data:** 06/11/2025  
+**Data:** 10/11/2025  
 **Participantes:** Gabriela, Gabrielli  
-**Objetivo:** Avançar na configuração do backend, incluindo criação de migrations, controllers e ajustes nas rotas.
+**Objetivo:** Finalizar a implementação do cadastro de empresas e iniciar o desenvolvimento das funcionalidades de usuários e vagas.
 
 ## Atividades Realizadas
-- Criação das **migrations** para estruturar as tabelas do banco de dados  
-- Desenvolvimento dos **controllers** para gerenciamento das funcionalidades  
-- Ajustes e organização das **rotas** do projeto  
-- Testes iniciais de integração entre as rotas e o banco de dados  
+- Conclusão do **cadastro e autenticação de empresas** no back-end  
+- Implementação da **criptografia de senhas** utilizando `bcryptjs`  
+- Testes das rotas de empresa no **Postman**  
+- Revisão e padronização dos retornos de erro e sucesso nas respostas da API  
+- Organização dos arquivos em pastas (`models`, `controllers`, `routes`) para melhor manutenção do código  
 
 ## Observações
-- As migrations foram criadas com sucesso e estão localizadas dentro da pasta `database/migrations`  
-- As rotas foram ajustadas para refletir a nova estrutura do projeto  
-- Pequenos ajustes no arquivo `routes.js` foram necessários para corrigir erros de sintaxe e uso de `async/await`  
+- A funcionalidade de criação de empresa está estável e devidamente testada  
+- Foi identificado que o **SessionController** precisará de uma migration para armazenar as sessões dos usuários  
+- Pequenos ajustes ainda podem ser necessários na validação dos campos antes da integração com o front-end  
 
 ## Próximos Passos
-- Implementar as validações nos controllers  
-- Criar novas rotas para cadastro e autenticação de usuários  
-- Testar as rotas com o banco de dados utilizando o Postman  
-- Revisar e documentar o fluxo de conexão com o PostgreSQL  
+- Criar migrations e controllers para **usuários**  
+- Iniciar a implementação do **cadastro e autenticação de usuários**  
+- Desenvolver a estrutura inicial das **rotas e models de vagas**  
+- Preparar o ambiente para início do **front-end** na próxima sprint  
 
-**Status do Projeto:** Em desenvolvimento 
+**Status do Projeto:** Em desenvolvimento

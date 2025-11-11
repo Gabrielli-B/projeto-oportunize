@@ -1,22 +1,19 @@
 import { Sequelize } from 'sequelize';
-import dbConfig from '../config/database.js';
+import databaseConfig from '../config/database.js'
  
-import User from '../app/models/User.js';
-import Job from '../app/models/Job.js';
+import Empresa from '../app/models/Empresa.js';
  
-const models = [User, Job];
+const models = [Empresa];
  
-// cria a conexão com o banco
-const connection = new Sequelize(dbConfig);
- 
-// inicializa cada model
-models.forEach((model) => model.init(connection));
- 
-// executa as associações (se existirem)
-models.forEach((model) => {
-  if (model.associate) {
-    model.associate(connection.models);
+class Database{
+  constructor(){
+    this.init();
   }
-});
- 
-export default connection;
+  init(){
+    this.connection = new Sequelize(databaseConfig);
+
+    models.map(model => model.init(this.connection))
+  }
+}
+
+export default new Database();

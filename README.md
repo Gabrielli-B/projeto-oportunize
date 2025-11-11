@@ -5,8 +5,8 @@ O projeto **Oportunize** é uma plataforma web voltada para a divulgação de va
 ---
 
 ## 👥 Equipe de Desenvolvimento
-- **Gabrielli Borba** – Product Owner / Back-end Developer  
-- **Gabriela Lima** – Scrum Master / Front-end Developer  
+- **Gabrielli Borba** – Product Owner / Full stack Developer  
+- **Gabriela Lima** – Scrum Master / Full Stack Developer  
 
 ---
 
@@ -50,15 +50,17 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 
 ---
 
-## 📅 Cronograma de Sprints (Scrum)
+## 📅 Cronograma de Sprints (Scrum) 
+
 | Sprint | Período | Objetivos Principais |
 |--------|----------|----------------------|
-| 1 | 21/10 a 27/10 | Definição dos requisitos, criação do repositório, estrutura inicial do projeto|
-| 2 | 28/10 a 02/11 | Implementar cadastro e login de empresas (back-end + API + testes). |
-| 3 | 03/11 a 10/11 | Criar interface de login e cadastro de empresas (front-end) e integrar com a API. |
-| 4 | 11/11 a 17/11 | Desenvolver cadastro. |
-| 5 | 18/11 a 24/11 | Criar tela pública de visualização de vagas. |
-| 6 | 25/11 a 01/12 | Testes finais, documentação e apresentação do projeto. |
+| **1** | 21/10 a 27/10 | Definição dos requisitos, criação do repositório e estrutura inicial do projeto. |
+| **2** | 28/10 a 10/11 | Implementar **cadastro e login de empresas** (back-end + API + testes). |
+| **3** | 11/11 a 17/11 | Implementar **cadastro e autenticação de usuários** (back-end + API). |
+| **4** | 18/11 a 24/11 | Desenvolver **cadastro e gerenciamento de vagas** (back-end + API). |
+| **5** | 25/11 a 01/12 | Criar **interfaces front-end** (login, cadastro de empresas e usuários, cadastro de vagas) e integrar com o back-end. |
+| **6** | 02/12 a 05/12 | **Ajustes finais, testes integrados, documentação e apresentação** do projeto. |
+
 
 ---
 

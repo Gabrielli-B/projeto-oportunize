@@ -1,15 +1,33 @@
 import { Router } from "express";
-import User from "./app/models/User.js"; 
+import Empresa from "./app/models/Empresa.js";
+import EmpresaController from "./app/controllers/EmpresaController.js";
+import authMiddleware from "./app/middlewares/auth.js"; 
 
 const routes = new Router();
 
-routes.get('/teste', async (req, res) => {  
-    const user = await User.create({
-        name: 'gabrielli',
-        email: 'gabi@gmail.com',
-        password_hash: '123123'
+
+routes.get("/teste", async (req, res) => {
+  try {
+    const empresa = await Empresa.create({
+      nome: "Dell",
+      cnpj: "12345678000199",
+      email: "dell@gmail.com",
+      password: "123123", 
     });
-    return res.json(user);
+
+    return res.json(empresa);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Erro ao criar empresa" });
+  }
 });
 
+routes.post("/empresa", EmpresaController.store);
+
+routes.use(authMiddleware);
+
+routes.put("/empresa", EmpresaController.update);
+
 export default routes;
+
+

@@ -1,13 +1,18 @@
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcryptjs';
 
-class User extends Model {
+class Empresa extends Model {
   static init(sequelize) {
     super.init(
       {
         nome: {
           type: Sequelize.STRING,
           allowNull: false,
+        },
+        cnpj: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          unique: true,
         },
         email: {
           type: Sequelize.STRING,
@@ -18,22 +23,23 @@ class User extends Model {
           },
         },
         password: {
-          type: Sequelize.VIRTUAL,
+          type: Sequelize.VIRTUAL, 
+          allowNull: false,
         },
         password_hash: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
       },
       {
         sequelize,
-        modelName: 'User',
-        tableName: 'users',
+        tableName: 'companies',
       }
     );
 
-    this.addHook('beforeSave', async (user) => {
-      if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 8);
+    this.addHook('beforeSave', async (empresa) => {
+      if (empresa.password) {
+        empresa.password_hash = await bcrypt.hash(empresa.password, 8);
       }
     });
 
@@ -45,4 +51,4 @@ class User extends Model {
   }
 }
 
-export default User;
+export default Empresa;

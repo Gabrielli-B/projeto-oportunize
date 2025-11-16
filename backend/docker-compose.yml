@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: gabi39w4
+      POSTGRES_DB: projeto-oportunize
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: backend_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: gabi39w4
+      DB_NAME: projeto-oportunize
+      DB_HOST: db
+    volumes:
+      - .:/usr/src/app
+    command: npm run dev
+
+volumes:
+  pgdata:
+

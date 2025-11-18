@@ -1,13 +1,13 @@
 'use strict';
 
-export default {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+module.exports = {
+  up(queryInterface, Sequelize) {
+    return queryInterface.createTable('users', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
       },
       nome: {
         type: Sequelize.STRING,
@@ -23,19 +23,17 @@ export default {
         allowNull: false,
       },
       created_at: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()'),
+        allowNull: false,
       },
       updated_at: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()'),
+        allowNull: false,
       },
     });
   },
 
-  async down(queryInterface) {
-    await queryInterface.dropTable('Users');
+  down:queryInterface => {
+    return queryInterface.dropTable('users');
   },
 };

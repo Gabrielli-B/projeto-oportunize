@@ -4,30 +4,13 @@ class Job extends Model {
   static init(sequelize) {
     super.init(
       {
-        titulo: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        descricao: {
-          type: Sequelize.TEXT,
-          allowNull: false,
-        },
-        requisitos: {
-          type: Sequelize.TEXT,
-          allowNull: true,
-        },
-        localizacao: {
-          type: Sequelize.STRING,
-          allowNull: true,
-        },
-        tipo_contrato: {
-          type: Sequelize.STRING,
-          allowNull: true,
-        },
-        email_contato: {
-          type: Sequelize.STRING,
-          allowNull: true,
-        },
+        titulo: Sequelize.STRING,
+        descricao: Sequelize.TEXT,
+        requisitos: Sequelize.TEXT,
+        localizacao: Sequelize.STRING,
+        tipo_contrato: Sequelize.STRING,
+        email_contato: Sequelize.STRING,
+        empresaId: Sequelize.INTEGER, // FK para Empresa
       },
       {
         sequelize,
@@ -40,7 +23,7 @@ class Job extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Empresa, { foreignKey: 'company_id', as: 'empresa' });
+    this.belongsTo(models.Empresa, { foreignKey: 'empresaId', as: 'empresa' });
   }
 }
 

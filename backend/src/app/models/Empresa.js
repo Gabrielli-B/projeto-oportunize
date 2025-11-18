@@ -1,39 +1,18 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 class Empresa extends Model {
   static init(sequelize) {
     super.init(
       {
-        nome: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        cnpj: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          unique: true,
-        },
-        email: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          unique: true,
-          validate: {
-            isEmail: true,
-          },
-        },
-        password: {
-          type: Sequelize.VIRTUAL, 
-          allowNull: false,
-        },
-        password_hash: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
+        nome: Sequelize.STRING,
+        cnpj: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password_hash: Sequelize.STRING, // aqui salvamos o hash
+        password: Sequelize.VIRTUAL, // campo temporário para senha
       },
       {
         sequelize,
-        tableName: 'companies',
       }
     );
 
@@ -45,7 +24,6 @@ class Empresa extends Model {
 
     return this;
   }
-
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }

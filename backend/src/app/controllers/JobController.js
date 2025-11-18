@@ -1,9 +1,9 @@
 import Job from '../models/Job.js';
+import database from "../../database/index.js";
 import * as Yup from 'yup';
 
 class JobController {
   async store(req, res) {
-    // validação simples
     const schema = Yup.object().shape({
       titulo: Yup.string().required(),
       descricao: Yup.string().required(),
@@ -13,10 +13,10 @@ class JobController {
       return res.status(400).json({ error: 'Validação falhou' });
     }
 
-    // req.empresaId vem do middleware de autenticação (empresa)
+    // req.empresaId vem do middleware de autenticação da empresa
     const job = await Job.create({
       ...req.body,
-      company_id: req.empresaId,
+      empresaId: req.empresaId,
     });
 
     return res.status(201).json(job);
@@ -27,7 +27,7 @@ class JobController {
 
     if (!job) return res.status(404).json({ error: 'Vaga não encontrada' });
 
-    if (job.company_id !== req.empresaId)
+    if (job.empresaId !== req.empresaId)
       return res.status(401).json({ error: 'Sem permissão' });
 
     const updated = await job.update(req.body);
@@ -39,7 +39,7 @@ class JobController {
 
     if (!job) return res.status(404).json({ error: 'Vaga não encontrada' });
 
-    if (job.company_id !== req.empresaId)
+    if (job.empresaId !== req.empresaId)
       return res.status(401).json({ error: 'Sem permissão' });
 
     await job.destroy();
@@ -47,7 +47,6 @@ class JobController {
   }
 
   async index(req, res) {
-    // listar vagas públicas (opcional: paginar)
     const jobs = await Job.findAll({ include: ['empresa'] });
     return res.json(jobs);
   }

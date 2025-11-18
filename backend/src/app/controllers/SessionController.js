@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
-import Empresa from '../models/Empresa.js';
+import Empresa from '../models/Empresa';
+import database from "../../database/index.js";
+import authConfig from '../../config/auth'; // certifique-se de ter este arquivo
 
 class SessionController {
   async store(req, res) {
@@ -8,26 +10,30 @@ class SessionController {
     const empresa = await Empresa.findOne({ where: { email } });
 
     if (!empresa) {
-      return res.status(401).json({ error: 'Empresa não encontrada' });
+      return res.status(401).json({ error: 'usuario nao existe' });
     }
 
     if (!(await empresa.checkPassword(password))) {
       return res.status(401).json({ error: 'Senha incorreta' });
     }
 
-    const { id, nome } = empresa;
+    const { id, nome, cnpj, email: empresaEmail } = empresa;
+
+    const token = jwt.sign({ id }, authConfig.secret, {
+      expiresIn: authConfig.expiresIn,
+    });
 
     return res.json({
       empresa: {
         id,
         nome,
-        email,
+        cnpj,
+        email: empresaEmail,
       },
-      token: jwt.sign({ id }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
+      token,
     });
   }
 }
 
 export default new SessionController();
+

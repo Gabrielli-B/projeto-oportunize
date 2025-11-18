@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
-import User from '../models/User.js';
-import authConfig from '../../config/auth.js';
+import User from '../models/User';
+import database from "../../database/index.js";
+import authConfig from '../../config/auth'; // certifique-se de ter este arquivo
 
 class SessionUserController {
   async store(req, res) {
@@ -9,19 +9,29 @@ class SessionUserController {
 
     const user = await User.findOne({ where: { email } });
 
-    if (!user) return res.status(401).json({ error: 'Usuário não encontrado' });
+    if (!user) {
+      return res.status(401).json({ error: 'usuario nao existe' });
+    }
 
-    if (!(await user.checkPassword(password)))
-      return res.status(401).json({ error: 'Senha inválida' });
+    if (!(await user.checkPassword(password))) {
+      return res.status(401).json({ error: 'Senha incorreta' });
+    }
 
-    const { id, nome } = user;
+    const { id, nome, email: userEmail } = user;
+
+    const token = jwt.sign({ id }, authConfig.secret, {
+      expiresIn: authConfig.expiresIn,
+    });
 
     return res.json({
-      user: { id, nome, email },
-      token: jwt.sign({ id }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
+      user: {
+        id,
+        nome,
+        email: userEmail,
+      },
+      token,
     });
   }
 }
+
 export default new SessionUserController();

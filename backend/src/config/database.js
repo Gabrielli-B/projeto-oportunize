@@ -1,23 +1,19 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 module.exports = {
   development: {
-    username: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "gabi39w4",
-    database: process.env.DB_NAME || "projeto-oportunize",
-    host: process.env.DB_HOST || "db",
-    dialect: "postgres"
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: 'postgres',
+    define: {
+      timestamps: true,
+      underscored: true,
+      underscoredAll: true,
+    },
   },
-  test: {
-    username: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "gabi39w4",
-    database: process.env.DB_NAME || "projeto-oportunize_test",
-    host: process.env.DB_HOST || "db",
-    dialect: "postgres"
-  },
-  production: {
-    username: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "gabi39w4",
-    database: process.env.DB_NAME || "projeto-oportunize",
-    host: process.env.DB_HOST || "db",
-    dialect: "postgres"
-  }
 };
+

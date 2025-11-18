@@ -1,33 +1,17 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        nome: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        email: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          unique: true,
-          validate: {
-            isEmail: true,
-          },
-        },
-        password: {
-          type: Sequelize.VIRTUAL,
-        },
-        password_hash: {
-          type: Sequelize.STRING,
-        },
+        nome: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password_hash: Sequelize.STRING, // aqui salvamos o hash
+        password: Sequelize.VIRTUAL, // campo temporário para senha
       },
       {
         sequelize,
-        modelName: 'User',
-        tableName: 'users',
       }
     );
 
@@ -46,3 +30,4 @@ class User extends Model {
 }
 
 export default User;
+

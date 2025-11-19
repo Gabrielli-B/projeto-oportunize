@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="src/style.css">
+  <meta charset="UTF-8">
+  <title>Frontend API - Gabriela e Gabrielli</title>
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+
+  <h1>Frontend simples - API Node</h1>
+
+  <nav>
+    <button onclick="mostrar('empresa')">Cadastrar Empresa</button>
+    <button onclick="mostrar('loginEmpresa')">Login Empresa</button>
+    <button onclick="mostrar('usuario')">Cadastrar Usuário</button>
+    <button onclick="mostrar('loginUsuario')">Login Usuário</button>
+    <button onclick="mostrar('jobs')">Jobs</button>
+  </nav>
+
+  <div id="conteudo"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/empresa.js"></script>
+  <script src="js/usuario.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/jobs.js"></script>
+
+  <script>
+    mostrar('empresa'); // primeira tela
+  </script>
 </body>
 </html>

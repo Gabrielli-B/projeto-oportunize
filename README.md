@@ -5,8 +5,8 @@ O projeto **Oportunize** é uma plataforma web voltada para a divulgação de va
 ---
 
 ## 👥 Equipe de Desenvolvimento
-- **Gabrielli Borba** – Product Owner / Back-end Developer  
-- **Gabriela Lima** – Scrum Master / Front-end Developer  
+- **Gabrielli Borba** – Product Owner / Full Stack Developer
+- **Gabriela Lima** – Scrum Master / Full Stack Developer  
 
 ---
 
@@ -51,14 +51,17 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 ---
 
 ## 📅 Cronograma de Sprints (Scrum)
+
 | Sprint | Período | Objetivos Principais |
 |--------|----------|----------------------|
-| 1 | 21/10 a 27/10 | Definição dos requisitos, criação do repositório, estrutura inicial do projeto|
-| 2 | 28/10 a 02/11 | Implementar cadastro e login de empresas (back-end + API + testes). |
-| 3 | 03/11 a 10/11 | Criar interface de login e cadastro de empresas (front-end) e integrar com a API. |
-| 4 | 11/11 a 17/11 | Desenvolver cadastro. |
-| 5 | 18/11 a 24/11 | Criar tela pública de visualização de vagas. |
-| 6 | 25/11 a 01/12 | Testes finais, documentação e apresentação do projeto. |
+| 1 | 21/10 a 27/10 | Reunião inicial, definição do escopo, tecnologias, criação do repositório e estrutura base do projeto. |
+| 2 | 28/10 a 02/11 | Configuração inicial do backend: rotas base, conexão com banco e testes iniciais no Postman. |
+| 3 | 03/11 a 10/11 | Criação das migrations, controllers, ajustes nas rotas e integração com o banco de dados. |
+| 4 | 11/11 a 17/11 | Finalização das migrations, ajustes no Docker, revisão de controllers e primeiros testes integrados. |
+| 5 | 18/11 a 18/11 | Testes de rotas de usuários, empresas e jobs; validação do ambiente Docker; ajustes de variáveis e controllers. |
+| 6 | 19/11 | Testes finais completos do backend, criação do frontend simples, validação do fluxo completo e finalização do README oficial. |
+
+
 
 ---
 
@@ -117,7 +120,7 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 | 🟢 | editar() |
 | 🟢 | remover() |
 
-## 🚀 Como Executar o Projeto (quando estiver pronto)
+## 🚀 Como Executar o Projeto 
 ```bash
 # Clonar o repositório
 git clone https://github.com/usuario/Oportunize.git
@@ -127,6 +130,73 @@ cd Oportunize
 
 # Subir os containers
 docker-compose up
+
+2. Criar o arquivo .env
+
+Crie o arquivo na raiz:
+
+APP_PORT=3000
+
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASS=senha_do_banco
+DB_NAME=oportunize
+DB_PORT=5432
+
+JWT_SECRET=sua_chave_secreta
+JWT_EXPIRES=7d
+
+3. Instalar as dependências
+npm install
+
+4. Criar o banco e rodar migrations
+npx sequelize db:create
+npx sequelize db:migrate
+
+
+Se tiver seeds:
+
+npx sequelize db:seed:all
+
+5. Iniciar o servidor
+npm run dev
+
+
+Backend disponível em:
+
+http://localhost:3000
+
+🐳 Rodando com Docker
+Subir os containers
+docker-compose up --build
+
+Visualizar logs
+docker logs oportunize-backend -f
+
+Parar os containers
+docker-compose down
+
+🌐 Executar o Front-end
+
+Interface simples.
+
+cd frontend
+start index.html
+
+
+Ou abra o arquivo diretamente no navegador.
+
+📜 Status do Projeto
+
+✔️ Backend funcional
+
+✔️ Front-end simples
+
+✔️ Testes via Postman
+
+⬜ Deploy
+
+⬜ Melhorias futuras
 
 
 

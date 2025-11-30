@@ -1,4 +1,4 @@
-# Quinta Reunião – Projeto Oportunize
+# Sexta Reunião – Projeto Oportunize
 
 **Data:** 19/11/2025  
 **Participantes:** Gabriela, Gabrielli  

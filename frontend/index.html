@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Vagas Disponíveis</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+    <div class="container cabecalho-flex">
+        <h1 class="titulo">Oportunize</h1>
+
+        <nav class="menu">
+            <a href="empresas/login.html">Área da Empresa</a>
+            <a href="usuarios/login.html">Área do Usuário</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container conteudo">
+
+    
+    <div class="filtro">
+        <input type="text" id="pesquisa" placeholder="Pesquisar vaga...">
+        <select id="filtroTipo">
+            <option value="">Todos os tipos</option>
+            <option value="Estágio">Estágio</option>
+            <option value="CLT">CLT</option>
+            <option value="Freelancer">Freelancer</option>
+        </select>
+    </div>
+
+    <div id="listaVagas" class="grid-vagas"></div>
+
+</div>
+
+<footer class="rodape">
+    <p>© 2025 Oportunize — Sua chance começa aqui.</p>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/principal.js"></script>
+
+</body>
+</html>

@@ -59,7 +59,8 @@ O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
 | 3 | 03/11 a 10/11 | Criação das migrations, controllers, ajustes nas rotas e integração com o banco de dados. |
 | 4 | 11/11 a 17/11 | Finalização das migrations, ajustes no Docker, revisão de controllers e primeiros testes integrados. |
 | 5 | 18/11 a 18/11 | Testes de rotas de usuários, empresas e jobs; validação do ambiente Docker; ajustes de variáveis e controllers. |
-| 6 | 02/12 | Testes finais completos do backend, criação do frontend simples, validação do fluxo completo e finalização do README oficial. |
+| 6 | 01/12 | Testes finais completos do backend, criação do frontend simples, validação do fluxo completo e finalização do README oficial. |
+| 7 | 02/12 | Ajustes no frontend e integração entre o backend, os testes e o frontend |
 
 
 

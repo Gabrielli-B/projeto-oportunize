@@ -1,80 +1,94 @@
-# **Sétima reunião – Projeto oportunize**  
-**Data:** 01/12/2025  
-**Horário:** 19:00 às 20:10  
-**Local:** Reunião Online (Teams) 
-**Participantes:** Gabrielli, Gabriela
+# Sétima Reunião – Projeto Oportunize
+
+**Data:** 02/12/2025
+**Participantes:** Gabriela, Gabrielli
+**Objetivo:** Realizar **ajustes críticos** no backend, validar o frontend simples e concluir o README oficial do projeto, preparando o ambiente para a **finalização dos testes**.
 
 ---
 
-## **1. Objetivo da Reunião**
-Revisar, ajustar e consolidar partes essenciais do front-end do projeto Oportunize, incluindo melhorias no layout, organização das páginas de cadastro/login e correções para integração com o back-end.
+## ✅ Atividades Realizadas
+
+* **Ajustes e testes** no **Postman** para as rotas de **Cadastro** e **Login** de **Usuários** e **Empresas**.
+* **Ajustes e execução de testes** para as rotas de **Vagas** (**Job**):
+    * **Cadastro de Vaga**
+    * **Atualização de Vaga**
+    * **Deleção/Exclusão de Vaga**
+    * **Listagem de todas as Vagas**
+* Criação de um **frontend simples** (HTML, CSS e JavaScript) para validar o consumo real da API
+* Teste do fluxo completo via frontend: **login → token → requisições autenticadas**
+* Ajustes no `docker-compose.yml` e nas variáveis do `.env` para garantir estabilidade do ambiente
+* Confirmação de que os containers `backend_container` e `postgres_container` comunicam corretamente
+* Revisão final do **README do projeto**, adicionando:
+    * Instruções de execução via Docker
+    * Instalação e configuração do backend
+    * Exemplos de rotas e respostas
+    * Guia para testar o frontend simples
+* Revisão dos controllers para respostas mais consistentes e claras
 
 ---
 
-## **2. Tópicos Tratados**
+## 📌 Observações Importantes
 
-### **2.1 Ajustes no arquivo de estilo (estilo.css)**
-- Revisão completa do CSS principal.
-- Padronização das cores (azul claro, branco, tons suaves).
-- Aplicação da fonte **Poppins** via Google Fonts.
-- Estilização do título “Oportunize” com gradiente azul.
-- Ajustes de layout:
-  - Cabeçalho responsivo com menu alinhado.
-  - Cards, formulários e botões uniformizados.
-  - Modais centralizados com fundo translúcido.
-  - Grid das vagas revisado.
-- Melhoria no espaçamento geral e responsividade.
+* Os testes no Postman realizados nesta etapa focaram em validar os **recentes ajustes** feitos nas funcionalidades essenciais de autenticação e rotas de vagas.
+* O Docker mostrou estabilidade e persistência de dados via volumes.
+* O frontend mínimo facilitou a visualização real do funcionamento da API.
+* O README está completo, organizado e apropriado para apresentação acadêmica ou profissional.
+* **Próxima Etapa de Testes:** A finalização completa e formal dos testes de cobertura será priorizada na próxima reunião.
 
 ---
 
-### **2.2 Padronização das páginas de Cadastro e Login**
-Páginas revisadas:
+## 🖥️ Sobre o Frontend Criado
 
-- `empresa/cadastro.html`  
-- `empresa/login.html`  
-- `usuarios/cadastro.html`  
-- `usuarios/login.html`
-
-Alterações aplicadas:
-
-- Centralização dos títulos com `.titulo-centro`.
-- Inserção da classe `.form-box` para padronizar formulários.
-- Ajuste do `<header>` com navegação uniforme.
-- Correção dos botões com `.btn-enviar`.
-- Ajuste em espaçamentos, estrutura e responsividade.
-- Links entre páginas revisados (“Já possui conta?”, “Não tem conta?”).
+* Desenvolvido com **HTML, CSS e JavaScript puro**
+* Criado para testes reais da API, permitindo:
+    * Login usando JWT
+    * Visualização e armazenamento do token
+    * Base pronta para testar rotas de CRUD
+* Funcionalidades validadas com sucesso usando o backend em Docker
 
 ---
 
-### **2.3 Ajustes e validações no arquivo empresa/empresas.js**
-- Captura de formulários com `getElementById`.
-- Implementação das requisições:
-  ```javascript
-  fetch("http://localhost:8080/empresa/login", { ... })
-  fetch("http://localhost:8080/empresa", { ... })
+## 📄 Sobre a Finalização do README
 
+O README final do projeto agora inclui:
 
-### **2.4 Ajustes e melhorias no JavaScript**
+* Passo a passo completo para rodar o backend
+* Configuração do `.env`
+* Como subir os containers com `docker-compose`
+* Como rodar as migrations
+* Documentação das rotas principais
+* Guia para rodar e testar o frontend simples
+* Estrutura e tecnologias do projeto
 
-- Tratamento correto de erros e mensagens ao usuário.
-- Redirecionamento após login/cadastro.
-- Padronização de variáveis e nomes de campos.
-- Revisão da sintaxe e organização do código.
-
----
-
-### **2.5 Correção de IDs e Estrutura dos Formulários**
-
-- Conferência dos IDs usados no HTML para garantir compatibilidade com o JS.
-- Ajustes em campos que estavam sem ID ou com nomes incorretos.
-- Verificação geral para evitar inconsistências entre front-end e back-end.
+O documento está pronto para qualquer pessoa executar o projeto sem dificuldades.
 
 ---
 
-## **3. Decisões Tomadas**
+## 🛠 Próximos Passos – Foco no Refinamento e Integração
 
-- Manter o padrão visual em tons de azul claro e branco.
-- Uniformizar todas as páginas com o layout revisado.
-- Criar próxima etapa: tela de vagas + listagem dinâmica.
-- Continuidade usando apenas `fetch` puro, sem bibliotecas extras.
+O foco agora é na melhoria da arquitetura atual e na evolução da interface de usuário, preparando o projeto para a fase final.
 
+* **Refatoração e Ajustes Internos no Backend (Concluídos):**
+    * Ajustes estruturais nos arquivos **`index.js`** e **`app.js`**.
+    * Revisão e otimização de todos os **Controllers** e **Models**.
+    * Ajuste nas **Migrations** para garantir a consistência do banco de dados, incluindo a correção da relação entre a `migration de vaga` e a `migration de empresa`.
+    * Refinamento das **Rotas** e da lógica de **Tokens** (JWT) para um fluxo de autenticação mais robusto e seguro.
+* **Evolução do Frontend e Integração Completa:**
+    * Evoluir a interface simples para um **frontend mais completo e responsivo**, melhorando o design e a experiência do usuário.
+    * Implementar a **comunicação completa e real** entre o frontend e o backend utilizando a API **`fetch`** para todas as requisições (CRUD).
+* **Documentação e Validações Adicionais:**
+    * **Finalizar os testes** de todas as rotas de forma sistemática (Postman/código).
+    * Criar a **documentação Swagger** da API.
+    * Melhorar as validações de dados (schema validation) utilizando o **Yup**.
+    * Preparar o ambiente para o **deploy** final do projeto.
+
+---
+
+## 🚀 Status do Projeto
+
+O backend está **estável e funcional** após os ajustes de refatoração, o frontend **valida corretamente as rotas**, e o README foi **finalizado de forma profissional**.
+
+---
+
+**Resumo da Reunião:**
+Os principais **ajustes de back-end** foram concluídos com sucesso, o frontend simples validou o funcionamento da API, e o README está completamente revisado e finalizado. O foco da próxima etapa é na **finalização dos testes** e no desenvolvimento do frontend completo.

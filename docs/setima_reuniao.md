@@ -53,7 +53,8 @@ Alterações aplicadas:
   fetch("http://localhost:8080/empresa/login", { ... })
   fetch("http://localhost:8080/empresa", { ... })
 
-  ### **2.4 Ajustes e melhorias no JavaScript**
+
+### **2.4 Ajustes e melhorias no JavaScript**
 
 - Tratamento correto de erros e mensagens ao usuário.
 - Redirecionamento após login/cadastro.

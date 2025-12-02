@@ -10,11 +10,11 @@ class Job extends Model {
         localizacao: Sequelize.STRING,
         tipo_contrato: Sequelize.STRING,
         email_contato: Sequelize.STRING,
-        empresaId: Sequelize.INTEGER, // FK para Empresa
+
+        empresa_id: Sequelize.INTEGER, // ✅ DECLARADO AQUI
       },
       {
         sequelize,
-        modelName: 'Job',
         tableName: 'jobs',
       }
     );
@@ -23,7 +23,10 @@ class Job extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Empresa, { foreignKey: 'empresaId', as: 'empresa' });
+    this.belongsTo(models.Empresa, {
+      foreignKey: 'empresa_id',
+      as: 'empresa',
+    });
   }
 }
 

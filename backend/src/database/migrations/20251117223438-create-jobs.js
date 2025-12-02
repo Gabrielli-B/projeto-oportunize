@@ -33,13 +33,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      empresaId: {   // FK para o model
+      // ✅ ALTERAÇÃO: Nome da coluna no BD mudou de 'idEmpresa' para 'empresa_id'
+      empresa_id: { 
         type: Sequelize.INTEGER,
         references: {
           model: 'empresas',
-          key: 'id',
+          // ✅ CORREÇÃO: A chave referenciada na tabela 'empresas' é 'idEmpresa'
+          key: 'empresa_id', 
         },
-        allowNull: true,
+        allowNull: true, 
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       },
       created_at: {
         type: Sequelize.DATE,

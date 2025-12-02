@@ -5,14 +5,20 @@ class Empresa extends Model {
   static init(sequelize) {
     super.init(
       {
+        empresa_id: { // ✅ CAMPO DECLARADO
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+        },
         nome: Sequelize.STRING,
         cnpj: Sequelize.STRING,
         email: Sequelize.STRING,
-        password_hash: Sequelize.STRING, // aqui salvamos o hash
-        password: Sequelize.VIRTUAL, // campo temporário para senha
+        password_hash: Sequelize.STRING,
+        password: Sequelize.VIRTUAL,
       },
       {
         sequelize,
+        tableName: 'empresas',
       }
     );
 
@@ -24,6 +30,11 @@ class Empresa extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Job, { foreignKey: 'empresa_id', as: 'jobs' });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }

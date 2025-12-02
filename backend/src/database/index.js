@@ -12,22 +12,18 @@ class Database {
   }
 
   init() {
-    // Pegando a configuração de development
-    const config = databaseConfig.development;
+    this.connection = new Sequelize(databaseConfig);
 
-    this.connection = new Sequelize(
-      config.database,
-      config.username,
-      config.password,
-      {
-        host: config.host,
-        dialect: config.dialect,
-        define: config.define,
+    models.map(model => model.init(this.connection));
+
+    models.map(model => {
+      if (model.associate) {
+        model.associate(this.connection.models);
       }
-    );
-
-    models.forEach(model => model.init(this.connection));
+      return model;
+    });
   }
 }
 
 export default new Database();
+

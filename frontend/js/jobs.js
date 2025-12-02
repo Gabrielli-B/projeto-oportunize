@@ -22,11 +22,15 @@ async function listarJobs() {
 }
 
 async function criarJob(e) {
-  e.preventDefault();
+  e.preventDefault();  
 
   const body = {
     title: tituloJob.value,
-    description: descricaoJob.value
+    description: descricaoJob.value,
+    requisitos: requisitosJob.value,
+    localizacao: localizacaoJob.value,
+    tipo_contratacao: tipo_contratacaoJob.value,
+    email_contato: email_contatoJob.value
   };
 
   const res = await api("/jobs", "POST", body);

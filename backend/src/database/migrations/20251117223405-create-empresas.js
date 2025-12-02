@@ -3,7 +3,7 @@
 module.exports = {
   up(queryInterface, Sequelize) {
     return queryInterface.createTable('empresas', { // ← minúsculo
-      id: {
+      empresa_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,

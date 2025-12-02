@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
-import authConfig from '../../config/auth';
+import authConfig from '../../config/auth.js'; // ✅ Adicionado .js
 
 export default async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -13,7 +13,11 @@ export default async (req, res, next) => {
 
   try {
     const decoded = await promisify(jwt.verify)(token, authConfig.secret);
-    req.userId = decoded.id; // pode ser User ou Empresa
+    
+    // ✅ CORREÇÃO: Injeta tanto userId quanto empresaId para o JobController funcionar
+    req.userId = decoded.id; 
+    req.empresaId = decoded.id; 
+    
     return next();
   } catch (err) {
     return res.status(401).json({ error: 'Token inválido' });

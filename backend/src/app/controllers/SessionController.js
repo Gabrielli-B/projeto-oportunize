@@ -17,15 +17,15 @@ class SessionController {
       return res.status(401).json({ error: 'Senha incorreta' });
     }
 
-    const { id, nome, cnpj, email: empresaEmail } = empresa;
+    const { empresa_id, nome, cnpj, email: empresaEmail } = empresa;
 
-    const token = jwt.sign({ id }, authConfig.secret, {
+    const token = jwt.sign({ id: empresa_id }, authConfig.secret, {
       expiresIn: authConfig.expiresIn,
     });
 
     return res.json({
       empresa: {
-        id,
+        empresa_id,
         nome,
         cnpj,
         email: empresaEmail,

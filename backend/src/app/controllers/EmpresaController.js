@@ -25,7 +25,7 @@ class EmpresaController {
     const empresa = await Empresa.create({ nome, cnpj, email, password });
 
     return res.json({
-      id: empresa.id,
+      id: empresa.empresa_id,
       nome: empresa.nome,
       cnpj: empresa.cnpj,
       email: empresa.email,
@@ -62,10 +62,10 @@ class EmpresaController {
       return res.status(401).json({ error: "Senha incorreta" });
     }
 
-    const { id, nome, cnpj, email: updatedEmail } = await empresa.update(req.body);
+    const { empresa_id, nome, cnpj, email: updatedEmail } = await empresa.update(req.body);
 
     return res.json({
-      id,
+      empresa_id,
       nome,
       cnpj,
       email: updatedEmail,

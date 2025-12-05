@@ -40,13 +40,17 @@ As principais práticas adotadas:
 - **Controle de versão:** Git e GitHub  
 ---
 
-## 🕓 Controle de Versão
-O projeto é versionado utilizando **Git e GitHub**, com as seguintes práticas:
+## Versionamento do Projeto
 
-- **Branch main:** contém o código estável e testado;  
-- **Branches de desenvolvimento:** cada integrante cria sua branch (`gabrielli-backend`, `gabriela-frontend`, etc.);  
-- **Pull Requests:** usadas para revisar o código antes de mesclar com a branch principal;  
-- **Commits:** realizados com mensagens descritivas e padronizadas.
+O projeto é versionado utilizando **Git** e **GitHub**, seguindo práticas de desenvolvimento ágil (Scrum):
+
+- **Branch main:** contém o código estável e testado, pronto para produção.
+- **Branch de desenvolvimento única:** todos os integrantes realizam suas alterações nesta branch, garantindo que o código seja integrado antes de ir para a main.
+- **Pull Requests:** utilizadas para revisar e aprovar mudanças antes de mesclar na branch principal.
+- **Commits:** realizados com mensagens descritivas e padronizadas, seguindo a convenção `feat`, `fix`, `chore`, entre outras.
+
+> Observação: Embora seja recomendada a criação de branches individuais por funcionalidade, neste projeto optou-se por uma branch de desenvolvimento única para simplificar a gestão, mantendo a cadência de entregas do Scrum.
+
 
 ---
 

@@ -7,8 +7,8 @@ class User extends Model {
       {
         nome: Sequelize.STRING,
         email: Sequelize.STRING,
-        password_hash: Sequelize.STRING, // aqui salvamos o hash
-        password: Sequelize.VIRTUAL, // campo temporário para senha
+        password_hash: Sequelize.STRING, 
+        password: Sequelize.VIRTUAL, 
       },
       {
         sequelize,

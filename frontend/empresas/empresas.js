@@ -1,60 +1,66 @@
-const formLogin = document.getElementById("formLoginEmpresa");
+const formLoginEmpresa = document.getElementById("formLoginEmpresa");
 
-if (formLogin) {
-    formLogin.addEventListener("submit", async (e) => {
-        e.preventDefault();
+if (formLoginEmpresa) {
+  formLoginEmpresa.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("senha").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
 
-        try {
-            const res = await fetch("http://localhost:8080/empresa/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, senha })
-            });
+    try {
+      const res = await fetch("http://localhost:3000/sessions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password:senha })
+      });
 
-            if (!res.ok) {
-                alert("Email ou senha incorretos!");
-                return;
-            }
+      if (!res.ok) {
+        alert("Email ou senha incorretos!");
+        return;
+      }
 
-            alert("Login realizado!");
-            window.location.href = "../index.html";
+      const data = await res.json(); 
 
-        } catch (erro) {
-            alert("Erro ao conectar com o servidor.");
-        }
-    });
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("empresa", JSON.stringify(data.empresa));
+
+      alert("Login realizado com sucesso!");
+      window.location.href = "dashboard.html"; 
+
+    } catch (erro) {
+      alert("Erro ao conectar com o servidor.");
+    }
+  });
 }
 
-const formCadastro = document.getElementById("formCadastroEmpresa");
+const formCadastroEmpresa = document.getElementById("formCadastroEmpresa");
 
-if (formCadastro) {
-    formCadastro.addEventListener("submit", async (e) => {
-        e.preventDefault();
+if (formCadastroEmpresa) {
+  formCadastroEmpresa.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const nomeEmpresa = document.getElementById("nome").value;
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("senha").value;
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("senha").value;
+    const cnpj = document.getElementById("cnpj").value;
 
-        try {
-            const res = await fetch("http://localhost:8080/empresa", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ nomeEmpresa, email, senha })
-            });
+    try {
+      const res = await fetch("http://localhost:3000/empresa", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, email, password, cnpj })
+      });
 
-            if (!res.ok) {
-                alert("Erro ao cadastrar empresa.");
-                return;
-            }
+      if (!res.ok) {
+        alert("Erro ao cadastrar empresa.");
+        return;
+      }
 
-            alert("Empresa cadastrada!");
-            window.location.href = "login.html";
+      alert("Empresa cadastrada com sucesso!");
+      window.location.href = "login.html";
 
-        } catch (erro) {
-            alert("Erro ao conectar com o servidor.");
-        }
-    });
+    } catch (erro) {
+      alert("Erro ao conectar com o servidor.");
+    }
+  });
 }

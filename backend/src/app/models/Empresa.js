@@ -5,7 +5,7 @@ class Empresa extends Model {
   static init(sequelize) {
     super.init(
       {
-        empresa_id: { // ✅ CAMPO DECLARADO
+        empresa_id: { 
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,

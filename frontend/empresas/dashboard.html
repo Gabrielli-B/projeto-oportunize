@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel da Empresa</title>
+  <link rel="stylesheet" href="../assets/css/estilo.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <h1>Painel da Empresa</h1>
+  <button onclick="logout()">Sair</button>
+</header>
+
+<div class="container">
+
+  <h2>Cadastrar Nova Vaga</h2>
+
+  <form id="formVaga">
+    <input type="text" id="titulo" placeholder="Título da vaga" required>
+    <textarea id="descricao" placeholder="Descrição" required></textarea>
+    <input type="text" id="tipo" placeholder="CLT, Estágio, Freelancer" required>
+    <input type="text" id="localizacao" placeholder="Localização" required>
+    <input type="email" id="email_contato" placeholder="Email de contato" required>
+    <button>Cadastrar</button>
+  </form>
+
+  <h2>Minhas Vagas</h2>
+  <div id="listaVagas"></div>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
+

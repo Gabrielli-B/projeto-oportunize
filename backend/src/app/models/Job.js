@@ -11,7 +11,7 @@ class Job extends Model {
         tipo_contrato: Sequelize.STRING,
         email_contato: Sequelize.STRING,
 
-        empresa_id: Sequelize.INTEGER, // ✅ DECLARADO AQUI
+        empresa_id: Sequelize.INTEGER, 
       },
       {
         sequelize,

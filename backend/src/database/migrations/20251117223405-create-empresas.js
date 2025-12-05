@@ -2,7 +2,7 @@
 
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('empresas', { // ← minúsculo
+    return queryInterface.createTable('empresas', { 
       empresa_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -39,7 +39,7 @@ module.exports = {
   },
 
   down:queryInterface =>{
-    return queryInterface.dropTable('empresas'); // ← minúsculo
+    return queryInterface.dropTable('empresas'); 
   },
 };
 
